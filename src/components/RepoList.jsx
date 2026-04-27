@@ -14,7 +14,7 @@ function RepoList() {
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800",
     },
     {
-      name: "SectionC_Group15_CoalTrack",
+      name: "CoalTrack_Analysis",
       image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800",
     },
     {
