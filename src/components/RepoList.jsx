@@ -1,55 +1,49 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import RepoCard from "./RepoCard";
 
 function RepoList() {
-  const [repos, setRepos] = useState([]);
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("All");
 
-  const username = "Atharva20041809";
-
-  const selectedRepos = [
+  const repos = [
     {
+      id: 1,
       name: "SectionC_G3_Salary_Visualization",
+      description: "Salary visualization project using data analysis and charts.",
+      html_url:
+        "https://github.com/Atharva20041809/SectionC_G3_Salary_Visualization",
+      language: "Python",
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800",
+      topics: ["data", "visualization", "dashboard"],
     },
     {
+      id: 2,
       name: "CoalTrack_Analysis",
+      description: "Coal tracking and analysis project.",
+      html_url: "https://github.com/Atharva20041809/CoalTrack_Analysis",
+      language: "Python",
       image: "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800",
+      topics: ["coal", "analysis", "tracking"],
     },
     {
+      id: 3,
       name: "Loan-Approval-System",
+      description: "Machine learning project for loan approval prediction.",
+      html_url: "https://github.com/Atharva20041809/Loan-Approval-System",
+      language: "Python",
       image: "https://images.unsplash.com/photo-1567427018141-0584cfcbf1b8?w=800",
+      topics: ["machine-learning", "loan", "prediction"],
     },
     {
+      id: 4,
       name: "House-Price-Prediction",
+      description: "Machine learning model for predicting house prices.",
+      html_url: "https://github.com/Atharva20041809/House-Price-Prediction",
+      language: "Python",
       image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800",
+      topics: ["ml", "regression", "real-estate"],
     },
   ];
-
-  useEffect(() => {
-    fetch(`https://api.github.com/users/${username}/repos`)
-      .then((res) => res.json())
-      .then((data) => {
-        const filtered = data
-          .filter((repo) =>
-            selectedRepos.some((item) => item.name === repo.name)
-          )
-          .map((repo) => {
-            const matchedRepo = selectedRepos.find(
-              (item) => item.name === repo.name
-            );
-
-            return {
-              ...repo,
-              image: matchedRepo.image,
-            };
-          });
-
-        setRepos(filtered);
-      })
-      .catch((err) => console.log(err));
-  }, []);
 
   const languages = [
     "All",
